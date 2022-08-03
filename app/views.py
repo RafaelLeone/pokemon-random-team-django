@@ -7,7 +7,7 @@ import random
 # Create your views here.
 def app_index(request):
     for i in range(6):
-        numero = random.randint(1, 800)
+        numero = random.randint(1, 905)
         url = f'https://pokeapi.co/api/v2/pokemon/{numero}'
         resp = requests.get(url)
         nome = resp.json()['name']
