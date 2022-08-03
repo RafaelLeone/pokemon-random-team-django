@@ -1,0 +1,8 @@
+<h1>Random team generator: </h1>
+
+{% for poke in pokes %}
+    {{ poke }}
+    <img
+        src="{{ poke.foto }}"
+    />
+{% endfor %}
