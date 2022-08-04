@@ -1,8 +1,34 @@
-<h1>Random team generator: </h1>
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+</head>
 
-{% for poke in pokes %}
-    {{ poke }}
-    <img
-        src="{{ poke.foto }}"
-    />
-{% endfor %}
+<body>
+    <h1>Choose a pokémon for team 1: </h1>  
+    <div class="team1">
+        <h1>Team 1:</h1>
+        {% for poke in pokes %}
+            <div class="pokemon">
+                <img class="foto"
+                    src="{% if poke.foto %}{{ poke.foto }}{% endif %}"
+                />
+                {{ poke }}
+            </div>
+        {% endfor %}
+    </div> 
+
+    <div class="vs">VS</div>
+    
+    <div class="team2">
+        <h1>Team 2:</h1>
+        {% for pok in pokez %}
+            <div class="pokemon">
+                <img class="foto"
+                    src="{% if pok.foto %}{{ pok.foto }}{% endif %}"
+                />
+                {{ pok }}
+            </div>
+        {% endfor %}
+    </div>
+
+</body>
