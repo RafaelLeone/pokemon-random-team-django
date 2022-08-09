@@ -1,9 +1,5 @@
-from django.contrib.auth.forms import AuthenticationForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 import requests
-from django.contrib.auth import login, authenticate
-from django.contrib import messages
-# from app.forms import NewUser
 from .models import Pokemon
 import random
 
