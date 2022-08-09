@@ -21,30 +21,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'adicione-um-segredo-aqui')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", "False") == "True"
+DEBUG = "True"
 
 # TODO: Obter isto do os.getenv
 ALLOWED_HOSTS = ['*']
 
 # Application definition
-DJANGO_APPS = [
+INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app',
+    'crispy_forms',
 ]
 
-THIRD_PARTY_APPS = [
-    'django_extensions',
-]
-
-LOCAL_APPS = [
-    'app'
-]
-
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -55,11 +49,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware'
 ]
-
-# isto é do debug_toolbar
-if DEBUG:
-    MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware", ]
 
 ROOT_URLCONF = 'choose.urls'
 
@@ -124,9 +115,9 @@ USE_I18N = True
 
 USE_TZ = True
 
-LOGIN_URL = 'contas.login'
-LOGIN_REDIRECT_URL = '/cursos'
-LOGOUT_REDIRECT_URL = '/cursos'
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
